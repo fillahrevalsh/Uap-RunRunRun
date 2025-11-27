@@ -1,1 +1,0 @@
-buat opening ya zahraaaaaaaa >\\<
