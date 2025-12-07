@@ -26,6 +26,15 @@ noecho();
 cbreak();
 curs_set(0);
 
+int tengahX = COLS / 2;
+
+mvprintw(1, tengahX - 20, "========================================");
+mvprintw(2, tengahX - 20, "          GAME MENU by FILLAH           ");
+mvprintw(3, tengahX - 20, "========================================");
+
+refresh();
+
+
 int x = LINES/4, y = 0;
 int tinggi = y+5, lebar = x+10;
 
