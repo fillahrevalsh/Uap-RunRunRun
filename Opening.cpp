@@ -1,4 +1,4 @@
-#include <ncurses.h>
+#include <ncurses/curses.h>
 #include <unistd.h>
 
 void menu(WINDOW *kor_menu, const char *opsi_pilihan[], int opsi, int jumlah_menu) {
@@ -26,25 +26,38 @@ noecho();
 cbreak();
 curs_set(0);
 
+start_color();
+init_pair(1, COLOR_CYAN, COLOR_BLACK);
+init_pair(2, COLOR_BLUE, COLOR_BLACK);
+init_pair(3, COLOR_GREEN, COLOR_BLACK);
+init_pair(4, COLOR_MAGENTA, COLOR_BLACK);
+init_pair(5, COLOR_RED, COLOR_BLACK);
+init_pair(6, COLOR_YELLOW, COLOR_BLACK);
+
 int tengahX = COLS / 2;
 
-mvprintw(1, tengahX - 20, "========================================");
-mvprintw(2, tengahX - 20, "          GAME MENU by FILLAH           ");
 mvprintw(3, tengahX - 20, "========================================");
+mvprintw(4, tengahX - (-10), "==========");
+
+wattron(stdscr, COLOR_PAIR (5) | A_BOLD);
+mvprintw(4, tengahX - 7, "# RUN RUN RUN #");
+wattroff(stdscr, COLOR_PAIR (5) | A_BOLD);
+
+mvprintw(4, tengahX - 20, "=========");
+mvprintw(5, tengahX - 20, "========================================");
 
 refresh();
 
-
-int x = LINES/4, y = 0;
-int tinggi = y+5, lebar = x+10;
+int x = LINES/3, y = 3;
+int tinggi = y+2, lebar = x+8;
 
 WINDOW *kor_menu = newwin(tinggi, lebar, y, x);
 keypad(kor_menu, TRUE);
 
 const char *opsi_pilihan[] = {
-"MULAI GAME",
-"PILIH LEVEL",
-"KELUAR GAME",
+" MULAI GAME",
+" PILIH LEVEL",
+" KELUAR GAME",
 };
 
 int jumlah_menu = sizeof(opsi_pilihan)/sizeof(opsi_pilihan[0]);
@@ -88,8 +101,3 @@ endwin();
 
 return 0;
 }
-
-
-
-
-
