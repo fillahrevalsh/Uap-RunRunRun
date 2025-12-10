@@ -1,5 +1,5 @@
 #include <ncurses/curses.h>
-#include <unistd.h>
+#include <windows.h>
 #include <string.h>
 #include <cstdlib>
 
@@ -82,7 +82,7 @@ mvprintw(0, COLS/2, "%d", dapat);
 
 mvprintw(y, x, "♪");
 refresh();
-usleep(level);
+Sleep(level);
 }
 
 }
@@ -162,7 +162,7 @@ mvprintw(10, tengahX - 17, "        #   # #  # #  ##           ");
 mvprintw(11, tengahX - 17, "        #   #  ##  #   #           ");
     attroff(COLOR_PAIR(3));
     refresh();
-usleep(500000);
+Sleep(500);
     attron(COLOR_PAIR(6));
 mvprintw(1, tengahX - 17, "####  #  # #   #  ####  #  # #   #");
 mvprintw(2, tengahX - 17, "#   # #  # ##  #  #   # #  # ##  #");
@@ -180,7 +180,7 @@ refresh();
     attroff(COLOR_PAIR(6));
     refresh();
 
-    usleep(500000);
+    Sleep(500);
 }
 
 while (1) {
@@ -311,7 +311,7 @@ mvprintw(13, tengahX - 17, "        #   # #  # #  ##           ");
 mvprintw(14, tengahX - 17, "        #   #  ##  #   #           ");
     attroff(COLOR_PAIR(3));
     refresh();
-usleep(500000);
+Sleep(500);
     attron(COLOR_PAIR(6));
 mvprintw(4, tengahX - 17, "####  #  # #   #  ####  #  # #   #");
 mvprintw(5, tengahX - 17, "#   # #  # ##  #  #   # #  # ##  #");
@@ -329,7 +329,7 @@ refresh();
     attroff(COLOR_PAIR(6));
     refresh();
 
-    usleep(500000);
+    Sleep(500);
 }
 
 int x = tengahX-20, y = 17;
@@ -410,53 +410,53 @@ while(program){
 int pilih = opening();
 
 if (pilih == 0) {
-game(5,150000);
+game(5,150);
 wattron(stdscr, COLOR_PAIR (3) | A_BOLD);
 mvprintw(LINES/2,COLS/2-7, "Level 1 done...");
 wattroff(stdscr, COLOR_PAIR (3) | A_BOLD);
 refresh();
-usleep(5000000);
+Sleep(5000);
 
 
-game(10,100000);
+game(10,100);
 wattron(stdscr, COLOR_PAIR (3) | A_BOLD);
 mvprintw(LINES/2,COLS/2-7, "Level 2 done...");
 wattroff(stdscr, COLOR_PAIR (3) | A_BOLD);
 refresh();
-usleep(5000000);
+Sleep(5000);
 
-game(20,80000);
+game(20,80);
 wattron(stdscr, COLOR_PAIR (3) | A_BOLD);
 mvprintw(LINES/2,(COLS/2) - 16, "Level 3 done... KAMU JAGO BANGET");
 wattroff(stdscr, COLOR_PAIR (3) | A_BOLD);
 refresh();
-usleep(5000000);
+Sleep(5000);
 
 } else if(pilih == 1) {
 
 while (1) {
 int kesulitan = level();
 if (kesulitan == 0) {
-game(5,150000);
+game(5,150);
 wattron(stdscr, COLOR_PAIR (3) | A_BOLD);
 mvprintw(LINES/2,(COLS/2)-7, "Level 1 done...");
 wattroff(stdscr, COLOR_PAIR (3) | A_BOLD);
 refresh();
-usleep(5000000);
+Sleep(5000);
 } else if (kesulitan == 1) {
-game(10,100000);
+game(10,100);
 wattron(stdscr, COLOR_PAIR (3) | A_BOLD);
 mvprintw(LINES/2,(COLS/2)-7, "Level 2 done...");
 wattroff(stdscr, COLOR_PAIR (3) | A_BOLD);
 refresh();
-usleep(5000000);
+Sleep(5000);
 } else if (kesulitan == 2) {
-game(20,80000);
+game(20,80);
 wattron(stdscr, COLOR_PAIR (3) | A_BOLD);
 mvprintw(LINES/2,(COLS/2) - 7, "Level 3 done...");
 wattroff(stdscr, COLOR_PAIR (3) | A_BOLD);
 refresh();
-usleep(5000000);
+Sleep(5000);
 } else if (kesulitan == 3) {
 break;
 }
